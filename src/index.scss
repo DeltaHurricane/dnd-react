@@ -1,0 +1,21 @@
+@import './styles-global/_baseColor.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Metal Mania', cursive;
+}
+
+body {
+  background-color: $color-brightGray;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
