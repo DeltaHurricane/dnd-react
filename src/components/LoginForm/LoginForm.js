@@ -7,7 +7,6 @@ export default function LoginForm() {
   return (
     <form className="login__form">
       <Input type="text" placeholder="Username" />
-      <br />
       <Input type="password" placeholder="Password" />
       <Button name="Login" />
     </form>
