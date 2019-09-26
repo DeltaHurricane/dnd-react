@@ -1,23 +1,22 @@
+@import '../../styles-global/base-color';
+
 .button {
   width: 80px;
   height: 35px;
   padding: 1%;
-  border-radius: 20% 20% 20% 20%;
+  border-radius: 10px;
   margin-top: 20px;
 }
 
-.button--confirmation {
-  position: relative;
-}
-
 .button--flash {
+  position: relative;
   overflow: hidden;
   transition: 1s;
 }
 
 .button:hover {
-  background-color: rgb(185, 63, 63);
-  box-shadow: -1em 0.35em 0.9em 0.1em rgba(0, 0, 0, 0.63);
+  background-color: $color-sangria;
+  box-shadow: -1em 0.35em 0.9em 0.1em black;
 }
 
 .button--flash::after {
@@ -27,7 +26,7 @@
   left: -35%;
   width: 20%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.3);
+  background: $color-silverSand;
   transform: skewX(-30deg);
   transition: 0.5s;
 }

@@ -1,0 +1,12 @@
+@import '../../styles-global/vars';
+@import '../../styles-global/utils';
+
+.not-found {
+  @include centralize-column;
+
+  height: 100vh;
+
+  &__text {
+    font-size: $font-big;
+  }
+}

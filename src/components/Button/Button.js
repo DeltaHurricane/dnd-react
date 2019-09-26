@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Button.scss';
 
-export default function Button({ name }) {
+export default function Button({ name, onClick }) {
   return (
     <button
+      onClick={onClick}
       className="button button--flash button--confirmation"
       type="button"
     >
@@ -15,4 +16,5 @@ export default function Button({ name }) {
 
 Button.propTypes = {
   name: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };

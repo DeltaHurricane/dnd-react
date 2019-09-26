@@ -1,8 +1,8 @@
+@import '../../styles-global/utils';
+
 .login__form {
+  @include centralize-column;
+
   width: 400px;
   height: 200px;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
 }

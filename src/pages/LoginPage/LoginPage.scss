@@ -1,0 +1,9 @@
+@import '../../styles-global/base-color';
+@import '../../styles-global/utils';
+
+.login__page {
+  @include centralize-column;
+
+  height: 100%;
+  width: 100%;
+}

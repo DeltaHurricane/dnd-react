@@ -1,4 +1,9 @@
-@import './styles-global/_baseColor.scss';
+@import './styles-global/_base-color.scss';
+
+@font-face {
+  src: url(./fonts/MetalMania-Regular.ttf);
+  font-family: 'Metal Mania';
+}
 
 * {
   padding: 0;
@@ -8,7 +13,7 @@
 }
 
 body {
-  background-color: $color-brightGray;
+  background-color: $color-background;
   display: flex;
   flex-direction: column;
   height: 100vh;
