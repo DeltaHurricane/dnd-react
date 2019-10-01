@@ -5,7 +5,7 @@ import './Input.scss';
 export default function Input({ type, placeholder, onChange }) {
   return (
     <input
-      className="input input--pulse"
+      className="input"
       type={type}
       placeholder={placeholder}
       onChange={onChange}
