@@ -1,0 +1,20 @@
+@import '../../styles-global/base-color';
+
+.card {
+  position: absolute;
+  left: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+  align-items: center;
+  justify-content: space-around;
+  width: 600px;
+  height: 500px;
+  border-radius: 10px;
+  transition: 1s;
+}
+
+.fadeaway {
+  opacity: 0;
+  z-index: -1;
+}

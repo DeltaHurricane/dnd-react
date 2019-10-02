@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Button from '../../components/Button/Button';
 import CurrentCardContext from '../../contexts/currentCardContext';
 import CardOrganizer from './Cards';
@@ -42,8 +42,7 @@ export default class Creation extends React.Component {
     return (
       <CurrentCardContext.Provider value={this.proximoEstado}>
         <CardOrganizer currentCard={currentCard} next={this.ProximoEstado} />
-        {currentCard > this.StartingCard && <Button name=">" onClick={this.voltaEstado} />}
-
+        {currentCard > this.StartingCard && <Button name="<" onClick={this.voltaEstado} />}
       </CurrentCardContext.Provider>
     );
   }
