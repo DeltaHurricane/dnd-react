@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../../components/Button/Button';
 import CurrentCardContext from '../../contexts/currentCardContext';
-import CardOrganizer from './Cards';
+import CardOrganizer from './components/CardOrganizer';
 
 export default class Creation extends React.Component {
   FinalCard = 4;
@@ -10,10 +10,10 @@ export default class Creation extends React.Component {
 
   constructor(props) {
     super(props);
+    this.nextState = this.nextState.bind(this);
     this.state = { currentCard: this.StartingCard };
     this.setCurrentcCard = this.setCurrentcCard.bind(this);
-    this.proximoEstado = this.proximoEstado.bind(this);
-    this.voltaEstado = this.voltaEstado.bind(this);
+    this.returnState = this.returnState.bind(this);
   }
 
   setCurrentcCard(currentCard) {
@@ -22,14 +22,14 @@ export default class Creation extends React.Component {
     });
   }
 
-  voltaEstado() {
+  returnState() {
     const { currentCard } = this.state;
     if (currentCard > this.StartingCard) {
       this.setState((prevState) => ({ currentCard: prevState.currentCard - 1 }));
     }
   }
 
-  proximoEstado() {
+  nextState() {
     const { currentCard } = this.state;
     if (currentCard < this.FinalCard) {
       this.setState((prevState) => ({ currentCard: prevState.currentCard + 1 }));
@@ -40,9 +40,9 @@ export default class Creation extends React.Component {
   render() {
     const { currentCard } = this.state;
     return (
-      <CurrentCardContext.Provider value={this.proximoEstado}>
-        <CardOrganizer currentCard={currentCard} next={this.ProximoEstado} />
-        {currentCard > this.StartingCard && <Button name="<" onClick={this.voltaEstado} />}
+      <CurrentCardContext.Provider value={this.nextState}>
+        <CardOrganizer currentCard={currentCard} />
+        {currentCard > this.StartingCard && <Button name="<" onClick={this.returnState} />}
       </CurrentCardContext.Provider>
     );
   }
