@@ -1,9 +1,9 @@
 import React from 'react';
-import Button from '../../components/Button/Button';
 import CurrentCardContext from '../../contexts/currentCardContext';
-import CardOrganizer from './components/CardOrganizer';
+import CardStack from './components/CardStack';
+import ControlTab from './components/ControlTab';
 
-export default class Creation extends React.Component {
+export default class CreationBody extends React.Component {
   FinalCard = 4;
 
   StartingCard = 0;
@@ -41,8 +41,12 @@ export default class Creation extends React.Component {
     const { currentCard } = this.state;
     return (
       <CurrentCardContext.Provider value={this.nextState}>
-        <CardOrganizer currentCard={currentCard} />
-        {currentCard > this.StartingCard && <Button name="<" onClick={this.returnState} />}
+        <CardStack currentCard={currentCard} />
+        <ControlTab
+          currentCard={currentCard}
+          StartingCard={this.StartingCard}
+          returnState={this.returnState}
+        />
       </CurrentCardContext.Provider>
     );
   }

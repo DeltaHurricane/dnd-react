@@ -1,18 +1,19 @@
 import React from 'react';
-import Creation from './Creation';
+import CreationBody from './CreationBody';
 import Logo from '../../components/Logo/Logo';
 import AppHeader from '../../components/AppHeader/AppHeader';
+import './CreationPage.scss';
 
 
 export default function CreationPage() {
   return (
-    <div className="creation__page">
+    <div className="creation">
       <header className="creation__header">
         <Logo />
         <AppHeader />
       </header>
       <div className="creation__body">
-        <Creation />
+        <CreationBody />
       </div>
     </div>
   );

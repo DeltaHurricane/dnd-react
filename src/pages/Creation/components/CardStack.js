@@ -4,20 +4,20 @@ import RaceCard from './RaceCard';
 import ClassCard from './ClassCard';
 import AttributesCard from './AttributesCard';
 import TraitsCard from './TraitsCard';
-import './CardOrganizer.scss';
+import './CardStack.scss';
 
 
-export default function CardOrganizer({ currentCard }) {
+export default function CardStack({ currentCard }) {
   return (
-    <>
+    <div className="card-stack">
       <RaceCard currentCard={currentCard} />
       <ClassCard currentCard={currentCard} />
       <AttributesCard currentCard={currentCard} />
       <TraitsCard currentCard={currentCard} />
-    </>
+    </div>
   );
 }
 
-CardOrganizer.propTypes = {
+CardStack.propTypes = {
   currentCard: PropTypes.number.isRequired,
 };
