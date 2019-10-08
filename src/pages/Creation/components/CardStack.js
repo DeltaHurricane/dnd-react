@@ -15,6 +15,7 @@ export default function CardStack({ currentCard }) {
       <AttributesCard currentCard={currentCard} />
       <TraitsCard currentCard={currentCard} />
     </div>
+
   );
 }
 

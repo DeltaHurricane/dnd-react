@@ -40,7 +40,7 @@ export default class CreationBody extends React.Component {
   render() {
     const { currentCard } = this.state;
     return (
-      <CurrentCardContext.Provider value={this.nextState}>
+      <CurrentCardContext.Provider value={{ nextState: this.nextState }}>
         <CardStack currentCard={currentCard} />
         <ControlTab
           currentCard={currentCard}

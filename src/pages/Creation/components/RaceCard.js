@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FigureBox from '../../../components/FigureBox/FigureBox';
+import CharacterContext from '../../../contexts/characterContext';
 import {
   human, halfOrc, dwarf, elf,
 } from '../assets';
@@ -9,12 +10,16 @@ import {
 export default function RaceCard({ currentCard }) {
   const show = `card${currentCard !== 0 ? ' fadeaway' : ''}`;
   return (
-    <div className={show}>
-      <FigureBox description="teste" imgSource={dwarf} />
-      <FigureBox description="teste" imgSource={human} />
-      <FigureBox description="teste" imgSource={halfOrc} />
-      <FigureBox description="teste" imgSource={elf} />
-    </div>
+    <CharacterContext.Consumer>
+      {({ character }) => (
+        <div className={show}>
+          <FigureBox description="teste" imgSource={dwarf} onClick={character.updateRace} />
+          <FigureBox description="teste" imgSource={human} onClick={character.updateRace} />
+          <FigureBox description="teste" imgSource={halfOrc} onClick={character.updateRace} />
+          <FigureBox description="teste" imgSource={elf} onClick={character.updateRace} />
+        </div>
+      )}
+    </CharacterContext.Consumer>
   );
 }
 

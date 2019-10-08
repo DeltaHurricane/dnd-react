@@ -4,11 +4,18 @@ import CurrentCardContext from '../../contexts/currentCardContext';
 import './FigureBox.scss';
 import Door from './Door';
 
-export default function FigureBox({ description, imgSource }) {
+export default function FigureBox({ description, imgSource, onClick }) {
+  function onFigureClick(nextState) {
+    return () => {
+      onClick(description);
+      nextState();
+    };
+  }
+
   return (
     <CurrentCardContext.Consumer>
-      {(nextState) => (
-        <div className="figure-box" onClick={nextState} role="button" tabIndex={0}>
+      {({ nextState }) => (
+        <div className="figure-box" onClick={onFigureClick(nextState)} role="button" tabIndex={0}>
           <Door imgSource={imgSource} position="top" />
           <p className="description">{description}</p>
           <Door imgSource={imgSource} position="bottom" />
@@ -21,4 +28,5 @@ export default function FigureBox({ description, imgSource }) {
 FigureBox.propTypes = {
   imgSource: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
