@@ -1,0 +1,42 @@
+@import '../../styles-global/base-color';
+
+.figure-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  width: 45%;
+  height: 45%;
+  margin: 0;
+  transition: 2s;
+}
+
+.figure-box:hover {
+  box-shadow: inset 0 0 20px 3px black;
+}
+
+.description {
+  position: absolute;
+  height: 50%;
+  width: 90%;
+}
+
+.figure-box:active {
+  background-color: $color-sangria;
+}
+
+.figure-box:hover .door--top {
+  transform: translate(0, -55%) scale(1.05);
+  box-shadow: 0 0 8px 0 black;
+  border-radius: 10px;
+  z-index: 3;
+}
+
+.figure-box:hover .door--bottom {
+  transform: translate(0, 55%) scale(1.05);
+  box-shadow: 0 0 8px 0 black;
+  border-radius: 10px;
+  z-index: 3;
+}
