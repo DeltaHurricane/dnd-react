@@ -8,10 +8,7 @@ import './CreationPage.scss';
 export default function CreationPage() {
   return (
     <div className="creation">
-      <header className="creation__header">
-        <Logo />
-        <AppHeader />
-      </header>
+      <AppHeader />
       <div className="creation__body">
         <CreationBody />
       </div>
