@@ -21,24 +21,24 @@ class Character {
     } else {
       this.stats[key] = value;
     }
-    console.log(this);
+    return this;
   }
 
 
   updateRace(characterRace) {
-    this.updateCharacterAttribute('race', characterRace);
+    return this.updateCharacterAttribute('race', characterRace);
   }
 
   updateClass(characterClass) {
-    this.updateCharacterAttribute('class', characterClass);
+    return this.updateCharacterAttribute('class', characterClass);
   }
 
   updateAttributes(characterAttributes, attributeName) {
-    this.updateCharacterAttribute('attributes', characterAttributes, attributeName);
+    return this.updateCharacterAttribute('attributes', characterAttributes, attributeName);
   }
 
   updateTraits(characterTraits, traitName) {
-    this.updateCharacterAttribute('traits', characterTraits, traitName);
+    return this.updateCharacterAttribute('traits', characterTraits, traitName);
   }
 }
 

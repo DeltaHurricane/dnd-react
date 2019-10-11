@@ -13,7 +13,7 @@ export default function ClassCard({ currentCard }) {
     <CharacterContext.Consumer>
       {({ character }) => (
         <div className={show}>
-          <FigureBox description="teste" imgSource={kobold} onClick={character.updateClass} />
+          <FigureBox description="kobold" imgSource={kobold} onClick={character.updateClass} />
           <FigureBox description="teste" imgSource={human} onClick={character.updateClass} />
           <FigureBox description="teste" imgSource={d20} onClick={character.updateClass} />
           <FigureBox description="teste" imgSource={elf} onClick={character.updateClass} />

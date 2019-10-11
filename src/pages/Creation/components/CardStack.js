@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import RaceCard from './RaceCard';
 import ClassCard from './ClassCard';
@@ -8,12 +9,14 @@ import './CardStack.scss';
 
 
 export default function CardStack({ currentCard }) {
+  const show = `input ${currentCard !== 4 ? 'fadeaway' : ''}`;
   return (
     <div className="card-stack">
       <RaceCard currentCard={currentCard} />
       <ClassCard currentCard={currentCard} />
       <AttributesCard currentCard={currentCard} />
       <TraitsCard currentCard={currentCard} />
+      <Link className={show} to="/game"> Jogar</Link>
     </div>
 
   );
