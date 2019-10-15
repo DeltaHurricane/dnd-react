@@ -6,7 +6,7 @@ export default function GameBody() {
   return (
     <div className="game__body">
       <CharacterSheet />
-      <InfoTab />
+      {/* <InfoTab /> */}
     </div>
   );
 }

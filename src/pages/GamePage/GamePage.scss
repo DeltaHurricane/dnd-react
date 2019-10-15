@@ -10,6 +10,7 @@
   &__body {
     flex-grow: 1;
     display: flex;
+    justify-content: center;
   }
 
   &__sheet {
@@ -138,7 +139,7 @@
     }
   }
 
-  &__skills {
+  &__skills-wrapper {
     flex-grow: 1;
     width: 100%;
     display: flex;
@@ -164,37 +165,43 @@
           backface-visibility: hidden;
         }
 
-        &__face--front {
+        &__face--untrained {
           @include centralize;
 
+          overflow: hidden;
+          justify-content: space-between;
           transform: rotateX(90deg) translateZ(23px);
           background-color: blueviolet;
         }
 
-        &__face--left {
+        &__face--proficient {
           @include centralize;
 
+          overflow: hidden;
+          justify-content: space-between;
           transform: rotateX(0deg) translateZ(23px);
           background-color: rgb(53, 168, 24);
         }
 
-        &__face--right {
+        &__face--expert {
           @include centralize;
 
+          justify-content: space-between;
+          overflow: hidden;
           transform: rotateX(-90deg) translateZ(23px);
           background-color: rgb(149, 143, 155);
         }
       }
 
-      &__rotator--show-front {
+      &__rotator--show-untrained {
         transform: translateZ(-23px) rotateX(-90deg);
       }
 
-      &__rotator--show-left {
+      &__rotator--show-proficient {
         transform: translateZ(-23px) rotateX(0deg);
       }
 
-      &__rotator--show-right {
+      &__rotator--show-expert {
         transform: translateZ(-23px) rotateX(90deg);
       }
     }
