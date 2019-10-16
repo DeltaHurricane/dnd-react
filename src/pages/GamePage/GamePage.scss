@@ -7,6 +7,23 @@
   display: flex;
   flex-direction: column;
 
+  &__modal {
+    position: absolute;
+    z-index: 1;
+    height: 300px;
+    width: 300px;
+    background-color: azure;
+    top: calc(50% - 150px);
+    left: calc(50% - 150px);
+    border-radius: 10px;
+    transition: 1s;
+    opacity: 0;
+
+    &__show {
+      opacity: 1;
+    }
+  }
+
   &__body {
     flex-grow: 1;
     display: flex;

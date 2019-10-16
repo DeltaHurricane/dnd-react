@@ -1,16 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import DiceRollContext from '../../../../contexts/diceRollContext';
 import Button from '../../../../components/Button/Button';
+
 
 export default function SkillPannel({
   skillName, modifier, onClick, name,
 }) {
+  function handleClick(showModal) {
+    return (event) => {
+      showModal(modifier, skillName);
+      event.stopPropagation();
+    };
+  }
   return (
-    <div className={`info__skills-wrapper__skill__rotator__face info__skills-wrapper__skill__rotator__face--${name}`}>
-      <Button onClick={onClick} name={name} />
-      {`${skillName}    ${modifier}`}
-      <Button onClick={onClick} name="roll" />
-    </div>
+    <DiceRollContext.Consumer>
+      {({ showModal }) => (
+        <div className={`info__skills-wrapper__skill__rotator__face info__skills-wrapper__skill__rotator__face--${name}`}>
+          <Button onClick={onClick} name={name} />
+          {`${skillName}    ${modifier}`}
+          <Button onClick={handleClick(showModal)} name="roll" />
+        </div>
+      )}
+    </DiceRollContext.Consumer>
   );
 }
 

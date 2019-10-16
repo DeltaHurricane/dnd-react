@@ -8,7 +8,6 @@ import getProperties from './services/getProperties';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       character: characterLoad(),
       racesInfo: this.racesInfo,
