@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function InfoHealth({ traits }) {
   return (
@@ -9,3 +10,7 @@ export default function InfoHealth({ traits }) {
     </div>
   );
 }
+
+InfoHealth.propTypes = {
+  traits: PropTypes.object.isRequired,
+};

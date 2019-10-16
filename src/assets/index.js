@@ -6,7 +6,12 @@ import d20 from './d20.jpg';
 import elf from './elf.jpg';
 
 export default {
-  kobold, human, halfOrc, d20, dwarf, elf,
+  kobold,
+  human,
+  halfOrc,
+  d20,
+  dwarf,
+  elf,
 };
 
 export {
