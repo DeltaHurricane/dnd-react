@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FigureBox from '../../../components/FigureBox/FigureBox';
+import FigureBox from './FigureBox';
 import CharacterContext from '../../../contexts/characterContext';
 import {
   human, kobold, d20, elf,
@@ -13,7 +13,7 @@ export default function ClassCard({ currentCard }) {
     <CharacterContext.Consumer>
       {({ character }) => (
         <div className={show}>
-          <FigureBox description="teste" imgSource={kobold} onClick={character.updateClass} />
+          <FigureBox description="kobold" imgSource={kobold} onClick={character.updateClass} />
           <FigureBox description="teste" imgSource={human} onClick={character.updateClass} />
           <FigureBox description="teste" imgSource={d20} onClick={character.updateClass} />
           <FigureBox description="teste" imgSource={elf} onClick={character.updateClass} />

@@ -1,0 +1,209 @@
+@import '../../styles-global/base-color';
+@import '../../styles-global/utils';
+
+.game {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+
+  &__body {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__sheet {
+    display: flex;
+    flex-direction: column;
+    width: 750px;
+    height: 100%;
+    border: solid black;
+  }
+
+  &__info {
+    flex-grow: 1;
+  }
+}
+
+.char {
+  display: flex;
+  height: 250px;
+  background-color: $color-sangria;
+
+  &__attributes {
+    width: 225px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__attribute {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+    width: 90px;
+    padding: 1%;
+    border-radius: 10px;
+    box-shadow: -1em 0 0.9em 0.1em black;
+    background-color: $color-silverSand;
+    transition: 0.5s;
+  }
+
+  &__attribute:hover {
+    box-shadow: 0 0 0 0 black;
+    border: 5px double black;
+  }
+
+  &__figure-wrapper {
+    display: flex;
+    width: 300px;
+    height: 250px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__figure-hoverable {
+    display: flex;
+    border-radius: 50%;
+    box-shadow: -1em 0 0.9em 0.1em black;
+  }
+
+  &__figure {
+    max-width: 300px;
+    max-height: 240px;
+    border-radius: 50%;
+    border: solid black;
+  }
+}
+
+.attribute--right {
+  position: relative;
+  right: 50px;
+}
+
+.attribute--left {
+  position: relative;
+  left: 50px;
+}
+
+.info {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  &__title {
+    height: 40px;
+    text-align: center;
+    color: #b9c1c1;
+    font-size: xx-large;
+    background-color: $color-sangria;
+    box-shadow: inset 0 0 10px 5px black;
+    text-shadow: -4px 1px 9px black;
+  }
+
+  &__health {
+    height: 60px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-around;
+    border: 1px solid black;
+
+    &__hp {
+      @include centralize;
+
+      background-color: rgb(170, 34, 34);
+      border: 1px solid black;
+      flex-grow: 1;
+    }
+
+    &__mana {
+      @include centralize;
+
+      background-color: rgb(62, 61, 133);
+      border: 1px solid black;
+      flex-grow: 1;
+    }
+
+    &__ca {
+      @include centralize;
+
+      background-color: rgb(110, 110, 110);
+      border: 1px solid black;
+      flex-grow: 1;
+    }
+  }
+
+  &__skills-wrapper {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__skill {
+      perspective: 600px;
+      //box-sizing: border-box;
+      width: 50%;
+      border: solid black;
+
+      &__rotator {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: 1s linear;
+
+        &__face {
+          position: absolute;
+          width: 366px;
+          height: 46px;
+          backface-visibility: hidden;
+        }
+
+        &__face--untrained {
+          @include centralize;
+
+          overflow: hidden;
+          justify-content: space-between;
+          transform: rotateX(90deg) translateZ(23px);
+          background-color: blueviolet;
+        }
+
+        &__face--proficient {
+          @include centralize;
+
+          overflow: hidden;
+          justify-content: space-between;
+          transform: rotateX(0deg) translateZ(23px);
+          background-color: rgb(53, 168, 24);
+        }
+
+        &__face--expert {
+          @include centralize;
+
+          justify-content: space-between;
+          overflow: hidden;
+          transform: rotateX(-90deg) translateZ(23px);
+          background-color: rgb(149, 143, 155);
+        }
+      }
+
+      &__rotator--show-untrained {
+        transform: translateZ(-23px) rotateX(-90deg);
+      }
+
+      &__rotator--show-proficient {
+        transform: translateZ(-23px) rotateX(0deg);
+      }
+
+      &__rotator--show-expert {
+        transform: translateZ(-23px) rotateX(90deg);
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CurrentCardContext from '../../contexts/currentCardContext';
+import CurrentCardContext from '../../../../contexts/currentCardContext';
 import './FigureBox.scss';
 import Door from './Door';
 

@@ -21,7 +21,6 @@ class Character {
     } else {
       this.stats[key] = value;
     }
-    console.log(this);
   }
 
 
