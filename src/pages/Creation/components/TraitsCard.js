@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import Input from '../../../components/Input/Input';
-import Button from '../../../components/Button/Button';
+import Input from '../../../components/Input';
+import Button from '../../../components/Button';
 import CharacterContext from '../../../contexts/characterContext';
 import storageService from '../../../services/StorageServices';
 import CurrentCardContext from '../../../contexts/currentCardContext';

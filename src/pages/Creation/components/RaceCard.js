@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FigureBox from './FigureBox/FigureBox';
+import FigureBox from './FigureBox';
 import CharacterContext from '../../../contexts/characterContext';
 import {
   human, halfOrc, dwarf, elf,

@@ -9,14 +9,14 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.getRaces = this.getRaces.bind(this);
-    this.getClasses = this.getClasses.bind(this);
-
     this.state = {
       character: characterLoad,
       racesInfo: this.racesInfo,
       classesInfo: this.classesInfo,
     };
+
+    this.getRaces = this.getRaces.bind(this);
+    this.getClasses = this.getClasses.bind(this);
   }
 
   componentDidMount() {

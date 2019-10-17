@@ -1,7 +1,7 @@
 import React from 'react';
 import './AppHeader.scss';
-import Logo from '../Logo/Logo';
-import OnlinePlayers from '../OnlinePlayers/OnlinePlayers';
+import Logo from '../Logo';
+import OnlinePlayers from '../OnlinePlayers';
 
 export default function AppHeader() {
   return (

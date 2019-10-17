@@ -9,9 +9,8 @@ export default {
   kobold, human, halfOrc, d20, dwarf, elf,
 };
 
-export { kobold };
-export { human };
-export { halfOrc };
-export { d20 };
-export { dwarf };
-export { elf };
+export {
+  kobold, human, halfOrc, d20, dwarf, elf,
+};
+
+// TODO replace for external server to serve the imgs;

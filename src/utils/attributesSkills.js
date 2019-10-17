@@ -9,5 +9,4 @@ const skills = {
   CHA: ['Deception', 'Intimidation', 'Performance', 'Persuasion'],
 };
 
-export { attributes };
-export { skills };
+export { attributes, skills };

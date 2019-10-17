@@ -1,6 +1,6 @@
 import React from 'react';
 import CreationBody from './CreationBody';
-import AppHeader from '../../components/AppHeader/AppHeader';
+import AppHeader from '../../components/AppHeader';
 import './CreationPage.scss';
 
 
