@@ -15,11 +15,11 @@ export default function SkillPannel({
   }
   return (
     <DiceRollContext.Consumer>
-      {({ showModal }) => (
+      {({ diceRoll }) => (
         <div className={`info__skills-wrapper__skill__rotator__face info__skills-wrapper__skill__rotator__face--${name}`}>
           <Button onClick={onClick} name={name} />
           {`${skillName}    ${modifier}`}
-          <Button onClick={handleClick(showModal)} name="roll" />
+          <Button onClick={handleClick(diceRoll)} name="roll" />
         </div>
       )}
     </DiceRollContext.Consumer>

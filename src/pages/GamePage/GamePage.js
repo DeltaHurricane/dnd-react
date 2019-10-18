@@ -16,36 +16,42 @@ export default class GamePage extends React.Component {
     };
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
+    this.diceRoll = this.diceRoll.bind(this);
   }
 
-  showModal(modifier, rollName) {
-    const rollValue = this.diceRoll();
+  showModal(modifier, rollName, rollValue) {
     this.setState({
       rollValue,
       modifier,
       rollName,
-      rolled: true,
     });
   }
 
   hideModal() {
-    this.setState({ rolled: false });
+    this.setState({ rollValue: false });
   }
 
 
-  diceRoll() {
-    return Math.floor(Math.random() * 20) + 1;
+  diceRoll(modifier, rollName) {
+    const rollValue = Math.floor(Math.random() * 20) + 1;
+    this.showModal(modifier, rollName, rollValue);
   }
 
   render() {
-    const { rolled } = this.state;
+    const { rollValue } = this.state;
     return (
       <div className="game" onClick={this.hideModal} role="button" tabIndex={0}>
         <AppHeader />
-        <DiceRollContext.Provider value={{ showModal: this.showModal }}>
+        <DiceRollContext.Provider value={{ diceRoll: this.diceRoll }}>
           <GameBody />
         </DiceRollContext.Provider>
-        {rolled && <DiceRoll configs={this.state} />}
+        {rollValue && (
+        <>
+          <DiceRoll configs={this.state} />
+          <div className="game__blur" />
+        </>
+        )}
+
       </div>
     );
   }
