@@ -1,0 +1,50 @@
+@import '../../styles-global/base-color';
+@import '../../styles-global/utils';
+
+.all-Players {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  flex-direction: row-reverse;
+
+  &__player {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 120px;
+    height: 70px;
+    background-color: coral;
+    border-radius: 8px;
+    overflow: hidden;
+    border: solid black 1px;
+
+    &__name {
+      width: 100%;
+      height: 18px;
+      background-color: $color-sangria;
+      text-align: center;
+      border-bottom: solid black 1px;
+      box-shadow: inset 0 0 4px 2px black;
+      font-size: 15px;
+      color: $color-antiqueWhite;
+    }
+
+    &__figure {
+      width: 60%;
+      height: 40px;
+      border-radius: 4px;
+      background-color: crimson;
+      margin-left: 5px;
+    }
+
+    &__connection {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: blue;
+      margin-left: 15px;
+      margin-top: 18px;
+    }
+  }
+}

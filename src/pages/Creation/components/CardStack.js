@@ -7,16 +7,17 @@ import AttributesCard from './AttributesCard';
 import TraitsCard from './TraitsCard';
 import './CardStack.scss';
 
-
 export default function CardStack({ currentCard }) {
-  const show = `input ${currentCard !== 4 ? 'fadeaway' : ''}`;
+  const cardToBeRendered = [
+    <RaceCard />,
+    <ClassCard />,
+    <AttributesCard />,
+    <TraitsCard />,
+    <Link className="input" to="/game"> Jogar</Link>,
+  ];
   return (
-    <div className="card-stack">
-      <RaceCard currentCard={currentCard} />
-      <ClassCard currentCard={currentCard} />
-      <AttributesCard currentCard={currentCard} />
-      <TraitsCard currentCard={currentCard} />
-      <Link className={show} to="/game"> Jogar</Link>
+    <div className="card-stack" data-testid="test">
+      {cardToBeRendered[currentCard]}
     </div>
 
   );

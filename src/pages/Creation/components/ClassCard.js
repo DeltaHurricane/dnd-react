@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import FigureBox from './FigureBox';
 import CharacterContext from '../../../contexts/characterContext';
 import {
@@ -7,12 +6,11 @@ import {
 } from '../assets';
 
 
-export default function ClassCard({ currentCard }) {
-  const show = `card${currentCard !== 1 ? ' fadeaway' : ''}`;
+export default function ClassCard() {
   return (
     <CharacterContext.Consumer>
       {({ character }) => (
-        <div className={show}>
+        <div className="card" title="ClassCard">
           <FigureBox description="kobold" imgSource={kobold} onClick={character.updateClass} />
           <FigureBox description="teste" imgSource={human} onClick={character.updateClass} />
           <FigureBox description="teste" imgSource={d20} onClick={character.updateClass} />
@@ -22,7 +20,3 @@ export default function ClassCard({ currentCard }) {
     </CharacterContext.Consumer>
   );
 }
-
-ClassCard.propTypes = {
-  currentCard: PropTypes.number.isRequired,
-};

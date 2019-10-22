@@ -1,13 +1,11 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
 import CharacterContext from '../../../contexts/characterContext';
 import storageService from '../../../services/StorageServices';
 import CurrentCardContext from '../../../contexts/currentCardContext';
 
-export default function TraitsCard({ currentCard }) {
-  const show = `card card__form${currentCard !== 3 ? ' fadeaway' : ''}`;
+export default function TraitsCard() {
   const { nextState } = useContext(CurrentCardContext);
   function saveNext(character) {
     nextState();
@@ -16,7 +14,7 @@ export default function TraitsCard({ currentCard }) {
   return (
     <CharacterContext.Consumer>
       {({ character }) => (
-        <form className={show}>
+        <form className="card card__form" title="TraitsCard">
           <Input type="text" placeholder="Name" onChange={(e) => { character.updateTraits(e.target.value, 'name'); }} />
           <Input type="number" placeholder="CA" onChange={(e) => { character.updateTraits(e.target.value, 'ca'); }} />
           <Input type="number" placeholder="HP" onChange={(e) => { character.updateTraits(e.target.value, 'hp'); }} />
@@ -29,8 +27,3 @@ export default function TraitsCard({ currentCard }) {
     </CharacterContext.Consumer>
   );
 }
-
-
-TraitsCard.propTypes = {
-  currentCard: PropTypes.number.isRequired,
-};
