@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Attribute({ name, value, position }) {
   const mod = Math.floor((value - 10) / 2);
@@ -12,3 +13,9 @@ export default function Attribute({ name, value, position }) {
     </div>
   );
 }
+
+Attribute.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  position: PropTypes.string.isRequired,
+};

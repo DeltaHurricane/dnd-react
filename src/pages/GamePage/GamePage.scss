@@ -1,11 +1,80 @@
 @import '../../styles-global/base-color';
 @import '../../styles-global/utils';
 
+@keyframes show {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes darkenBG {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.65;
+  }
+}
+
 .game {
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
+  transition: 1s;
+
+  &__modal {
+    @include centralize-column;
+
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 1;
+    height: 300px;
+    width: 300px;
+    background-color: azure;
+    top: calc(50% - 150px);
+    left: calc(50% - 150px);
+    border-radius: 10px;
+    transition: 1s;
+    opacity: 0;
+    animation: show 1s both;
+
+    &__dice-figure {
+      max-height: 200px;
+    }
+
+    &__results {
+      margin-top: 15px;
+      align-content: center;
+    }
+
+    &__results--crit {
+      font-size: 1.5em;
+      color: rgb(46, 226, 46);
+    }
+
+    &__results--fail {
+      font-size: 1.5em;
+      color: $color-sangria;
+    }
+  }
+
+  &__blur {
+    z-index: 0;
+    position: absolute;
+    background-color: black;
+    opacity: 0.6;
+    height: 100vh;
+    width: 100vw;
+    animation: darkenBG 1s both;
+  }
 
   &__body {
     flex-grow: 1;

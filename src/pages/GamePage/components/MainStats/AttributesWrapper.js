@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Attribute from './Attribute';
 
 export default function AttributesWrapper({ stat, side, attributesNames }) {
@@ -9,3 +10,9 @@ export default function AttributesWrapper({ stat, side, attributesNames }) {
     </div>
   );
 }
+
+AttributesWrapper.propTypes = {
+  stat: PropTypes.object.isRequired,
+  side: PropTypes.string.isRequired,
+  attributesNames: PropTypes.array.isRequired,
+};

@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CharacterFigure from './CharacterFigure';
 import AttributesWrapper from './AttributesWrapper';
-import { attributes } from '../../../utils/attributesSkills';
+import { attributes } from '../../../../utils/attributesSkills';
 
 
 export default function MainStats({ characterAttributes, race }) {
@@ -13,3 +14,8 @@ export default function MainStats({ characterAttributes, race }) {
     </div>
   );
 }
+
+MainStats.propTypes = {
+  characterAttributes: PropTypes.object.isRequired,
+  race: PropTypes.string.isRequired,
+};

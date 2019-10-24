@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should click should render without throwing an error 1`] = `
+<button
+  className="button button--flash button--confirmation"
+  onClick={[Function]}
+  type="button"
+>
+  test
+</button>
+`;

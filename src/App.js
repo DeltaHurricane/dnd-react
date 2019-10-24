@@ -2,15 +2,14 @@ import React from 'react';
 import Routes from './Routes';
 import CharacterContext from './contexts/characterContext';
 import './App.scss';
-import characterLoad from './utils/character';
+import characterLoad from './services/CharacterServices';
 import getProperties from './services/getProperties';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      character: characterLoad,
+      character: characterLoad(),
       racesInfo: this.racesInfo,
       classesInfo: this.classesInfo,
     };

@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import '@babel/polyfill';
 import whitelistFilter from './transformers';
 
