@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
+import apiServices from '../../services/ApiServices';
 import './LoginForm.scss';
 
 export default class LoginForm extends React.Component {
@@ -9,22 +10,31 @@ export default class LoginForm extends React.Component {
     this.handleUsername = this.handleUsername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.nextpage = this.nextpage.bind(this);
     this.state = { username: null, password: null };
   }
 
 
   handleSubmit() {
-    console.log(this);
+    const token = apiServices.getLoginToken(this.state);
+    token
+      .then((tokenValue) => (tokenValue === 'ok' ? this.nextpage() : console.log('fail')));
+  }
+
+  nextpage() {
+    this.setState({ }, () => {
+      this.props.history.push('/');
+    });
   }
 
   handleUsername(event) {
     const username = event.target.value;
-    this.setState({ username }, () => console.log(username));
+    this.setState({ username });
   }
 
   handlePassword(event) {
     const password = event.target.value;
-    this.setState({ password }, () => console.log(this.state));
+    this.setState({ password });
   }
 
   render() {

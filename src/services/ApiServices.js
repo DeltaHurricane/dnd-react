@@ -15,6 +15,19 @@ const ApiServices = {
       return fullInfo;
     }));
   },
+
+  async getLoginToken(login) {
+    const myInit = {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(login),
+    };
+    const response = await fetch('http://localhost:5000/login', myInit);
+    return response.json();
+  },
 };
 
 export default ApiServices;
