@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 import apiServices from '../../services/ApiServices';
+import storageServices from '../../services/StorageServices';
 import './LoginForm.scss';
 
 export default class LoginForm extends React.Component {
@@ -16,6 +17,8 @@ export default class LoginForm extends React.Component {
 
 
   handleSubmit() {
+    const { username } = this.state;
+    storageServices.setIn('username', username);
     const token = apiServices.getLoginToken(this.state);
     token
       .then((tokenValue) => (tokenValue === 'ok' ? this.nextpage() : console.log('fail')));
