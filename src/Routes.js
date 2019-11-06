@@ -4,14 +4,16 @@ import LoginPage from './pages/LoginPage';
 import GamePage from './pages/GamePage';
 import Creation from './pages/Creation';
 import NotFound from './pages/NotFound';
+import ChoosingPage from './pages/ChoosingPage';
 
 
 export default function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Creation} />
-        <Route path="/login" component={LoginPage} />
+        <Route exact path="/" component={LoginPage} />
+        <Route path="/choice" component={ChoosingPage} />
+        <Route path="/creation" component={Creation} />
         <Route path="/game" component={GamePage} />
         <Route component={NotFound} />
       </Switch>

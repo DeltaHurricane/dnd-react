@@ -16,6 +16,9 @@ export default function Attribute({ name, value, position }) {
 
 Attribute.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   position: PropTypes.string.isRequired,
 };

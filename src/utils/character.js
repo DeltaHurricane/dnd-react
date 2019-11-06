@@ -11,6 +11,7 @@ class Character {
     this.updateClass = this.updateClass.bind(this);
     this.updateAttributes = this.updateAttributes.bind(this);
     this.updateTraits = this.updateTraits.bind(this);
+    this.updateStats = this.updateStats.bind(this);
   }
 
   updateCharacterAttribute(key, value, propertieName) {
@@ -23,6 +24,9 @@ class Character {
     }
   }
 
+  updateStats(character) {
+    this.stats = character.stats;
+  }
 
   updateRace(characterRace) {
     this.updateCharacterAttribute('race', characterRace);

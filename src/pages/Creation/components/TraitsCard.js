@@ -4,12 +4,18 @@ import Button from '../../../components/Button';
 import CharacterContext from '../../../contexts/characterContext';
 import storageService from '../../../services/StorageServices';
 import CurrentCardContext from '../../../contexts/currentCardContext';
+import apiServices from '../../../services/ApiServices';
 
 export default function TraitsCard() {
   const { nextState } = useContext(CurrentCardContext);
   function saveNext(character) {
-    nextState();
+    const currentGame = storageService.getFrom('currentGame').name;
+    const characterToDatabase = {};
+    characterToDatabase.username = storageService.getFrom('username').username;
+    characterToDatabase.stats = character.stats;
+    apiServices.setGameCharacter(currentGame, characterToDatabase);
     storageService.setIn('characterStats', character);
+    nextState();
   }
   return (
     <CharacterContext.Consumer>

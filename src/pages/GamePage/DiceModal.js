@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types'; TODO
 import { d20 } from '../../assets';
 
 export default function DiceModal({ configs }) {

@@ -70,6 +70,9 @@ export default Rotator;
 
 Rotator.propTypes = {
   skillName: PropTypes.string.isRequired,
-  attributeValue: PropTypes.string.isRequired,
+  attributeValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   proficiency: PropTypes.number.isRequired,
 };

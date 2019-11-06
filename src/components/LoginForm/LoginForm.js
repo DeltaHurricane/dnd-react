@@ -18,7 +18,7 @@ export default class LoginForm extends React.Component {
 
   handleSubmit() {
     const { username } = this.state;
-    storageServices.setIn('username', username);
+    storageServices.setIn('username', { username });
     const token = apiServices.getLoginToken(this.state);
     token
       .then((tokenValue) => (tokenValue === 'ok' ? this.nextpage() : console.log('fail')));
@@ -26,7 +26,7 @@ export default class LoginForm extends React.Component {
 
   nextpage() {
     this.setState({ }, () => {
-      this.props.history.push('/');
+      this.props.history.push('/choice');
     });
   }
 

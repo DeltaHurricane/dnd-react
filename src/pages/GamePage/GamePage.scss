@@ -240,7 +240,7 @@
           overflow: hidden;
           justify-content: space-between;
           transform: rotateX(90deg) translateZ(23px);
-          background-color: blueviolet;
+          background-color: darkslateblue;
         }
 
         &__face--proficient {
@@ -249,7 +249,7 @@
           overflow: hidden;
           justify-content: space-between;
           transform: rotateX(0deg) translateZ(23px);
-          background-color: rgb(53, 168, 24);
+          background-color: gray;
         }
 
         &__face--expert {
@@ -258,7 +258,7 @@
           justify-content: space-between;
           overflow: hidden;
           transform: rotateX(-90deg) translateZ(23px);
-          background-color: rgb(149, 143, 155);
+          background-color: goldenrod;
         }
       }
 
