@@ -41,6 +41,18 @@ const ApiServices = {
     return response.json();
   },
 
+  async getGameInfo(username, id) {
+    const myInit = {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    };
+    const response = await fetch(`http://localhost:5000/games/${username}/${id}`, myInit);
+    return response.json();
+  },
+
   async setGameCharacter(game, character) {
     const myInit = {
       method: 'POST',
@@ -50,7 +62,7 @@ const ApiServices = {
       },
       body: JSON.stringify(character),
     };
-    const response = await fetch(`http://localhost:5000/games/${game}`, myInit);
+    const response = await fetch(`http://localhost:5000/games/${character.username}/${game}`, myInit);
     return response.json();
   },
 };

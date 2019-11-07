@@ -24,20 +24,24 @@ export default class ChoosingPage extends React.Component {
   }
 
 
-  saveChoosen(game, character) {
-    storageServices.setIn('currentGame', game);
-    const previousChar = characterExists(game);
-    if (previousChar) {
-      storageServices.setIn('characterStats', { stats: previousChar.stats });
-      character.updateStats(previousChar);
-      this.setState({ }, () => {
-        this.props.history.push('/game');
+  saveChoosen(character, { _id }) {
+    const { username } = storageServices.getFrom('username');
+    apiServices.getGameInfo(username, _id)
+      .then((game) => {
+        storageServices.setIn('currentGame', game);
+        const previousChar = characterExists(game);
+        if (previousChar) {
+          storageServices.setIn('characterStats', { stats: previousChar.stats });
+          character.updateStats(previousChar);
+          this.setState({ }, () => {
+            this.props.history.push('/game');
+          });
+        } else {
+          this.setState({ }, () => {
+            this.props.history.push('/creation');
+          });
+        }
       });
-    } else {
-      this.setState({ }, () => {
-        this.props.history.push('/creation');
-      });
-    }
   }
 
 
@@ -53,7 +57,7 @@ export default class ChoosingPage extends React.Component {
         {({ character }) => (
           <div className="choice">
             {!loadComplete && <div>loading</div>}
-            {loadComplete && games.map((game) => <Button key={game.name} onClick={() => this.saveChoosen(game, character)} name={game.name} />)}
+            {loadComplete && games.map((game) => <Button key={game.name} onClick={() => this.saveChoosen(character, game)} name={game.name} />)}
           </div>
         )}
       </CharacterContext.Consumer>

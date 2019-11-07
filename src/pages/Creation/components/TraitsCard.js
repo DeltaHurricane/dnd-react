@@ -9,7 +9,7 @@ import apiServices from '../../../services/ApiServices';
 export default function TraitsCard() {
   const { nextState } = useContext(CurrentCardContext);
   function saveNext(character) {
-    const currentGame = storageService.getFrom('currentGame').name;
+    const currentGame = storageService.getFrom('currentGame')._id;
     const characterToDatabase = {};
     characterToDatabase.username = storageService.getFrom('username').username;
     characterToDatabase.stats = character.stats;
