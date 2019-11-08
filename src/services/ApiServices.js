@@ -62,7 +62,7 @@ const ApiServices = {
       },
       body: JSON.stringify(character),
     };
-    const response = await fetch(`http://localhost:5000/games/${character.username}/${game}`, myInit);
+    const response = await fetch(`http://localhost:5000/games/${game}`, myInit);
     return response.json();
   },
 };
