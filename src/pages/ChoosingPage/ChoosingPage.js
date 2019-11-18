@@ -17,16 +17,14 @@ export default class ChoosingPage extends React.Component {
   }
 
   componentDidMount() {
-    const { username } = storageServices.getFrom('username');
-    const games = apiServices.getGames(username);
+    const games = apiServices.getGames();
     games
       .then((game) => this.renderGames(game));
   }
 
 
   saveChoosen(character, { _id }) {
-    const { username } = storageServices.getFrom('username');
-    apiServices.getGameInfo(username, _id)
+    apiServices.getGameInfo(_id)
       .then((game) => {
         storageServices.setIn('currentGame', game);
         const previousChar = characterExists(game);

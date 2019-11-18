@@ -1,6 +1,7 @@
 import axios from 'axios';
 import baseUrl from '../utils/baseUrl';
 import apiAbstraction from '../utils/apiAbstraction';
+import storageServices from './StorageServices';
 
 const ApiServices = {
   async getAddress(infoType, api = apiAbstraction) {
@@ -30,41 +31,22 @@ const ApiServices = {
     return response.json();
   },
 
-  async getGames(username) {
-    const myInit = {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-    };
-    const response = await fetch(`http://localhost:5000/games/${username}`, myInit);
-    return response.json();
+  async getGames() {
+    const { token } = storageServices.getFrom('token');
+    const response = await axios.get('http://localhost:5000/games/user', { headers: { Authorization: `Bearer ${token}` } });
+    return response.data;
   },
 
-  async getGameInfo(username, id) {
-    const myInit = {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-    };
-    const response = await fetch(`http://localhost:5000/games/${username}/${id}`, myInit);
-    return response.json();
+  async getGameInfo(id) {
+    const { token } = storageServices.getFrom('token');
+    const response = await axios.get(`http://localhost:5000/games/user/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+    return response.data;
   },
 
-  async setGameCharacter(game, character) {
-    const myInit = {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(character),
-    };
-    const response = await fetch(`http://localhost:5000/games/${game}`, myInit);
-    return response.json();
+  async setGameCharacter(id, character) {
+    const { token } = storageServices.getFrom('token');
+    const response = await axios.post(`http://localhost:5000/games/${id}`, character, { headers: { Authorization: `Bearer ${token}` } });
+    return response.data;
   },
 };
 

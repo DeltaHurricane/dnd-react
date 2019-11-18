@@ -21,8 +21,10 @@ export default class LoginForm extends React.Component {
     storageServices.setIn('username', { username });
     const token = apiServices.getLoginToken(this.state);
     token
-      .then((tokenValue) => console.log(tokenValue));
-    // (tokenValue === 'ok' ? this.nextpage() : console.log('fail')));
+      .then((tokenValue) => {
+        storageServices.setIn('token', { token: tokenValue.token });
+        tokenValue.error === undefined ? this.nextpage() : console.log(tokenValue.error);
+      });
   }
 
   nextpage() {
