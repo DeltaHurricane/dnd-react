@@ -4,6 +4,7 @@ import GameBody from './GameBody';
 import AppHeader from '../../components/AppHeader/AppHeader';
 import DiceRollContext from '../../contexts/diceRollContext';
 import DiceRoll from './DiceModal';
+import storageServices from '../../services/StorageServices';
 import './GamePage.scss';
 
 const endpoint = 'http://127.0.0.1:5000';
@@ -12,6 +13,8 @@ export default class GamePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      socket: socketIOClient(endpoint),
+      room: storageServices.getFrom('currentGame')._id,
       rollValue: null,
       modifier: null,
       rollName: null,
@@ -23,9 +26,14 @@ export default class GamePage extends React.Component {
   }
 
   componentDidMount() {
-    const socket = socketIOClient(endpoint);
-    console.log(socket);
-    socket.on('FromAPI', (data) => console.log(data));
+    const { room } = this.state;
+    const { socket } = this.state;
+    socket.on('connect', () => {
+      socket.emit('room', room);
+    });
+    socket.on('doBarrelRoll', (modifier, rollName, rollValue) => {
+      this.showModal(modifier, rollName, rollValue);
+    });
   }
 
   showModal(modifier, rollName, rollValue) {
@@ -42,7 +50,10 @@ export default class GamePage extends React.Component {
 
 
   diceRoll(modifier, rollName) {
+    const { room } = this.state;
+    const { socket } = this.state;
     const rollValue = Math.floor(Math.random() * 20) + 1;
+    socket.emit('roll', room, modifier, rollName, rollValue);
     this.showModal(modifier, rollName, rollValue);
   }
 
